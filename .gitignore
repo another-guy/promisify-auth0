@@ -1,0 +1,5 @@
+node_modules/
+src/*.js
+test/*.js
+test/report.html
+
