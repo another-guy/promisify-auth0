@@ -39,5 +39,9 @@
     "puppeteer": "^0.11.0",
     "tslint": "^5.7.0",
     "typescript": "^2.5.3"
+  },
+  "dependencies": {
+    "@types/auth0-js": "^8.6.3",
+    "auth0-js": "^8.10.1"
   }
 }
