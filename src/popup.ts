@@ -1,6 +1,5 @@
 import * as a0 from 'auth0-js';
-
-import { cb } from './cb';
+import { promisify } from 'typed-promisify';
 
 export class Popup {
 
@@ -8,22 +7,17 @@ export class Popup {
   preload = this.wp.preload;
   callback = this.wp.callback;
 
+  authorize: (options: any) => Promise<any> =
+    promisify(this.wp.authorize);
+
+  loginWithCredentials: (options: any) => Promise<any> =
+    promisify(this.wp.loginWithCredentials);
+
+  passwordlessVerify: (options: any) => Promise<any> =
+    promisify(this.wp.passwordlessVerify);
+
+  signupAndLogin: (options: any) => Promise<any> =
+    promisify(this.wp.signupAndLogin);
+
   constructor(private wp: a0.Popup) { }
-
-  authorize(options: any): Promise<any> {
-    return new Promise((resolve, reject) => this.wp.authorize(options, cb(resolve, reject)));
-  }
-
-  loginWithCredentials(options: any): Promise<any> {
-    return new Promise((resolve, reject) => this.wp.loginWithCredentials(options, cb(resolve, reject)));
-  }
-
-  passwordlessVerify(options: any): Promise<any> {
-    return new Promise((resolve, reject) => this.wp.passwordlessVerify(options, cb(resolve, reject)));
-  }
-
-  signupAndLogin(options: any): Promise<any> {
-    return new Promise((resolve, reject) => this.wp.signupAndLogin(options, cb(resolve, reject)));
-  }
-
 }

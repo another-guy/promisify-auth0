@@ -1,7 +1,7 @@
 import * as a0 from 'auth0-js';
+import { promisify } from 'typed-promisify';
 
 import { Authentication } from './authentication';
-import { cb } from './cb';
 import { CrossOriginAuthentication } from './cross-origin-authentication';
 import { Popup } from './popup';
 import { Redirect } from './redirect';
@@ -28,45 +28,33 @@ export class WebAuth {
   crossOriginAuthenticationCallback = this.wa.crossOriginAuthenticationCallback;
   logout = this.wa.logout;
 
+  parseHash: (options?: a0.ParseHashOptions | undefined) => Promise<a0.Auth0DecodedHash> =
+    promisify(this.wa.parseHash);
+
+  validateToken: (token: string, nonce: string) => Promise<any> =
+    promisify(this.wa.validateToken);
+
+  renewAuth: (options: a0.RenewAuthOptions) => Promise<any> =
+    promisify(this.wa.renewAuth);
+
+  changePassword: (options: a0.ChangePasswordOptions) => Promise<any> =
+    promisify(this.wa.changePassword);
+
+  signup: (options: a0.DbSignUpOptions) => Promise<any> =
+    promisify(this.wa.signup);
+
+  signupAndAuthorize: (options: a0.DbSignUpOptions) => Promise<any> =
+    promisify(this.wa.signupAndAuthorize);
+
+  login: (options: a0.CrossOriginLoginOptions) => Promise<any> =
+    promisify(this.wa.login);
+
+  passwordlessStart: (options: a0.PasswordlessStartOptions) => Promise<any> =
+    promisify(this.wa.passwordlessStart);
+
+  passwordlessVerify: (options: a0.PasswordlessVerifyOptions) => Promise<any> =
+    promisify(this.wa.passwordlessVerify);
+
   constructor(private wa: a0.WebAuth) { }
 
-  parseHash(): Promise<a0.Auth0DecodedHash>;
-  parseHash(options?: a0.ParseHashOptions): Promise<a0.Auth0DecodedHash> {
-    return new Promise(
-        (resolve, reject) => (options !== undefined ?
-          this.wa.parseHash(options, cb(resolve, reject)) :
-          this.wa.parseHash(cb(resolve, reject))));
-  }
-
-  validateToken(token: string, nonce: string): Promise<any> {
-    return new Promise((resolve, reject) => this.wa.validateToken(token, nonce, cb(resolve, reject)));
-  }
-
-  renewAuth(options: a0.RenewAuthOptions): Promise<any> {
-    return new Promise((resolve, reject) => this.wa.renewAuth(options, cb(resolve, reject)));
-  }
-
-  changePassword(options: a0.ChangePasswordOptions): Promise<any> {
-    return new Promise((resolve, reject) => this.wa.changePassword(options, cb(resolve, reject)));
-  }
-
-  signup(options: a0.DbSignUpOptions): Promise<any> {
-    return new Promise((resolve, reject) => this.wa.signup(options, cb(resolve, reject)));
-  }
-
-  signupAndAuthorize(options: a0.DbSignUpOptions): Promise<any> {
-    return new Promise((resolve, reject) => this.wa.signupAndAuthorize(options, cb(resolve, reject)));
-  }
-
-  login(options: a0.CrossOriginLoginOptions): Promise<any> {
-    return new Promise((resolve, reject) => this.wa.login(options, cb(resolve, reject)));
-  }
-
-  passwordlessStart(options: a0.PasswordlessStartOptions): Promise<any> {
-    return new Promise((resolve, reject) => this.wa.passwordlessStart(options, cb(resolve, reject)));
-  }
-
-  passwordlessVerify(options: a0.PasswordlessVerifyOptions): Promise<any> {
-    return new Promise((resolve, reject) => this.wa.passwordlessVerify(options, cb(resolve, reject)));
-  }
 }
