@@ -2,7 +2,7 @@
   "name": "promisify-auth0",
   "version": "0.0.1",
   "description": "Make Auth0-js work with promises instead of callbacks.",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "karma start",
     "test:single-run": "karma start --single-run",
@@ -14,10 +14,13 @@
     "url": "git+https://github.com/another-guy/promisify-auth0.git"
   },
   "keywords": [
-    "Auth0",
-    "Promises",
-    "async",
-    "await"
+    "auth0",
+    "auth",
+    "openid",
+    "authentication",
+    "jwt",
+    "browser",
+    "promises"
   ],
   "author": "Igor Soloydenko",
   "license": "MIT",
