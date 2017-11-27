@@ -4,7 +4,7 @@ Promisifying wrapper around the Client Side Javascript toolkit for Auth0 API
 
 ## Install
 
-From [npm](https://github.com/another-guy/promisify-auth0)
+From [npm](https://www.npmjs.com/package/promisify-auth0)
 
 ```
 npm i --save promisify-auth0
