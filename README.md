@@ -2,6 +2,8 @@
 
 Promisifying wrapper around the Client Side Javascript toolkit for Auth0 API
 
+[![Known Vulnerabilities](https://snyk.io/test/npm/promisify-auth0/badge.svg)](https://snyk.io/test/npm/promisify-auth0)
+
 ## Install
 
 From [npm](https://www.npmjs.com/package/promisify-auth0)
