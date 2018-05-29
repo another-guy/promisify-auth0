@@ -1,6 +1,6 @@
 {
   "name": "promisify-auth0",
-  "version": "9.5.1",
+  "version": "9.6.0",
   "description": "Make Auth0-js work with promises instead of callbacks.",
   "main": "./dist/index.js",
   "scripts": {
@@ -26,12 +26,12 @@
   },
   "homepage": "https://github.com/another-guy/promisify-auth0#readme",
   "devDependencies": {
-    "tslint": "^5.7.0",
+    "tslint": "^5.10.0",
     "typed-promisify": "^0.4.0",
-    "typescript": "^2.5.3"
+    "typescript": "^2.8.3"
   },
   "dependencies": {
     "@types/auth0-js": "^8.11.2",
-    "auth0-js": "^9.5.1"
+    "auth0-js": "^9.6.0"
   }
 }
